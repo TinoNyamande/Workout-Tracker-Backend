@@ -2,9 +2,10 @@ require("dotenv").config();
 const workoutRoutes = require("./routes/workout");
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
-
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use((req, res, next) => {
   console.log("Path", req.path);
   console.log("Method", req.method);
