@@ -75,6 +75,7 @@ const editWorkout = async(req,res) =>{
     
 }
 
+
 module.exports = {
     createWorkout,
     getSingleWorkout,
