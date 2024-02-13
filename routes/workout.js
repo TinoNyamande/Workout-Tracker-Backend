@@ -1,5 +1,8 @@
 const express = require("express");
 const Workout = require("./../Models/Workout");
+const requireAuth = require("./../middleware/authMiddleware")
+
+
 const {
   createWorkout,
   getSingleWorkout,
@@ -10,14 +13,14 @@ const {
 
 const router = express.Router();
 
-router.get("/", getAllWorkouts);
+router.get("/workouts/",requireAuth, getAllWorkouts);
 
-router.get("/:id", getSingleWorkout);
+router.get("/workouts/:id", getSingleWorkout);
 
-router.post("/", createWorkout);
+router.post("/workouts/", createWorkout);
 
-router.delete("/:id", deleteWorkout);
+router.delete("/workouts/:id", deleteWorkout);
 
-router.patch("/:id",editWorkout);
+router.patch("/workouts/:id",editWorkout);
 
 module.exports = router;
